@@ -1,45 +1,62 @@
-import * as React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '@/app/screens/HomeScreen';
-import ProfileScreen from '@/app/screens/ProfileScreen';
-import { AntDesign } from '@expo/vector-icons';
+import React, { useEffect, useState } from 'react';
+import { View, ActivityIndicator, Text, StyleSheet, ScrollView } from 'react-native';
+import { useFonts } from 'expo-font';
+import { USERDATA, COLORS } from "@/constants"
+import Hero from "@/components/Hero/index.jsx"
+import GitHubStatistics from "@/components/GitHubStatistics.jsx"
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 
-const Tab = createBottomTabNavigator();
+
+import { fetchData } from '@/utils/api';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+const queryClient = new QueryClient();
+
 
 export default function App() {
+  const [profileData, setProfileData] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  const getData = async () => {
+    const data = await fetchData(`/users/${USERDATA.githubUser}`);
+    setProfileData(data);
+    setLoading(false);
+    return data;
+  }
+  useEffect(() => {
+    getData();
+  }, [])
+
+  const [fontsLoaded] = useFonts({
+    'SpaceMono': require('@/assets/fonts/SpaceMono-Regular.ttf')
+  });
+
+  if (!fontsLoaded || loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: {
-          backgroundColor: '#1E1E1E', // Dark-themed background color
-          borderTopWidth: 0, // Remove the top border
-          elevation: 10, // Add a subtle shadow
-        },
-        tabBarActiveTintColor: '#FFFFFF', // White color for active tab icon
-        tabBarInactiveTintColor: '#8E8E8E', // Light gray color for inactive tab icons
-      }}
-    >
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarShowLabel: false,
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="home" size={24} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          tabBarShowLabel: false,
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="user" size={24} color={color} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaView style={styles.container}>
+        <ScrollView>
+          <Hero profileData={profileData} />
+          <GitHubStatistics />
+        </ScrollView>
+        <StatusBar hidden={false} />
+      </SafeAreaView>
+    </QueryClientProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.primaryBg,
+    // paddingHorizontal: 20,
+  }
+})
