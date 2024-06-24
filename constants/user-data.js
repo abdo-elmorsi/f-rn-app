@@ -20,5 +20,6 @@ const userData = {
     timezone: "+2",
     company: "Infinity Jewellery ERP",
     hireable: true,
+    cvUrl: "https://drive.google.com/file/d/1kfM4Bvt8fO3L68BRt-H_pFgh-v9SNfk6/view?usp=sharing"
 };
 export default userData;

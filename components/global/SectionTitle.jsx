@@ -1,5 +1,4 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { SIZES, COLORS } from '@/constants'
 import CustomButton from '../CustomButton'
 

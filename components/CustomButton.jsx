@@ -1,4 +1,3 @@
-import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import { COLORS, SIZES } from '@/constants'
@@ -16,8 +15,8 @@ const CustomButton = ({ title, icon, onPress, buttonStyle, textStyle }) => {
 				style={styles.gradientBorder}
 			>
 				<View style={styles.buttonContent}>
-					{icon && <View style={styles.icon}>{icon}</View>}
 					<Text style={[styles.buttonText, textStyle]}>{title}</Text>
+					{icon && <View style={styles.icon}>{icon}</View>}
 				</View>
 			</LinearGradient>
 		</Pressable>
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: SIZES.xSmall,
 	},
 	icon: {
-		marginRight: 8,
+		marginLeft: 8,
 	},
 	buttonText: {
 		color: '#fff',

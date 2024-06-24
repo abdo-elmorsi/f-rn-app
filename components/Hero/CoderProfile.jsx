@@ -1,10 +1,8 @@
-import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { SIZES, USERDATA, COLORS } from '@/constants';
 
 
-const CoderProfile = ({profileData}) => {
-
+const CoderProfile = ({ profileData }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.gradientContainer}>
@@ -18,21 +16,20 @@ const CoderProfile = ({profileData}) => {
 				<View style={styles.codeContainer}>
 					<Text style={styles.codeText}>
 						const coder = &#123;{'\n'}
-						{'\t'}{'\t'}name: '<Text style={{ color: COLORS.primaryIcon }}>{USERDATA.devUsername}</Text>',{'\n'}
+						{'\t'}{'\t'}name: '<Text style={{ color: COLORS.primaryIcon }}>{profileData.name}</Text>',{'\n'}
 
 						{'\t'}{'\t'}company: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{profileData.company}</Text>'',{'\n'}
 
-						{'\t'}{'\t'}location: '<Text style={{ color: COLORS.primaryIcon }}>{USERDATA.location}</Text>',{'\n'}
-						{'\t'}{'\t'}followers: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{USERDATA.followers}</Text>',{'\n'}
-						{'\t'}{'\t'}following: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{USERDATA.following}</Text>',{'\n'}
-						{'\t'}{'\t'}repositories: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{USERDATA.repositories}</Text>',{'\n'}
-						{'\t'}{'\t'}repositories: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{USERDATA.repositories}</Text>',{'\n'}
+						{'\t'}{'\t'}location: '<Text style={{ color: COLORS.primaryIcon }}>{profileData.location}</Text>',{'\n'}
+						{'\t'}{'\t'}followers: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{profileData.followers}</Text>',{'\n'}
+						{'\t'}{'\t'}following: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{profileData.following}</Text>',{'\n'}
+						{'\t'}{'\t'}repositories: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{profileData.public_repos}</Text>',{'\n'}
 
 
 						{'\t'}{'\t'}skills: <Text style={{ color: COLORS.primaryTitle }}>['
 							{USERDATA.skills.join(', ')}']</Text>
 						,{'\n'}
-						{'\t'}{'\t'}hireable: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{USERDATA.hireable.toString()}</Text>',{'\n'}&#125;;
+						{'\t'}{'\t'}hireable: '<Text style={{ color: COLORS.GRADIENT_COLORS[1] }}>{profileData.hireable.toString()}</Text>',{'\n'}&#125;;
 					</Text>
 				</View>
 			</View>
@@ -82,7 +79,7 @@ const styles = StyleSheet.create({
 		padding: SIZES.small,
 	},
 	skillText: {
-		color: '#00bcd4',
+		color: COLORS.primaryIcon,
 	},
 });
 

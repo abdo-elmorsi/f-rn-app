@@ -1,18 +1,13 @@
-import { Image, Linking, StyleSheet, Text, View } from "react-native"
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { COLORS, SIZES, USERDATA } from "@/constants";
 import { Entypo, FontAwesome, FontAwesome5 } from "@expo/vector-icons";
-import CustomButton from "../CustomButton";
+import CustomButton from "@/components/CustomButton";
 import CoderProfile from "./CoderProfile";
-import useFetch from "@/hooks/useFetch.js";
-import { fetchData } from "@/utils/api.js";
-import { useEffect } from "react";
+import { openUrl } from '@/utils/utils';
 
-const Hero = ({profileData}) => {
-	const handleDownload = () => {
-		Linking.openURL('https://drive.google.com/file/d/1kfM4Bvt8fO3L68BRt-H_pFgh-v9SNfk6/view?usp=sharing');
-	};
 
-	// console.log("data", data, "loading", loading, "error", error);
+const Hero = ({ profileData }) => {
+
 	return <View style={styles.container} >
 		<Image
 
@@ -22,22 +17,32 @@ const Hero = ({profileData}) => {
 				resizeMode: "cover",
 				borderRadius: 75,
 			}}
-			source={require("@/assets/abdo.jpg")} />
+			source={{ uri: profileData.avatar_url }} />
 		<Text style={styles.description}>
-			I'm a Front-end developer skilled in React JS, NextJs, NodeJs, Express & MongoDb. Based in Cairo, Egypt, seeking a challenging role to elevate user experiences.
+			{profileData.bio}
 		</Text>
 		<View style={styles.socialIcons}>
-			<FontAwesome5 name="github" size={24} color={COLORS.primaryIcon} />
-			<FontAwesome name="linkedin-square" size={24} color={COLORS.primaryIcon} />
-			<FontAwesome5 name="facebook" size={24} color={COLORS.primaryIcon} />
-			<Entypo name="code" size={24} color={COLORS.primaryIcon} />
-			<FontAwesome name="twitter-square" size={24} color={COLORS.primaryIcon} />
+			<TouchableOpacity onPress={() => openUrl(profileData.html_url)}>
+				<FontAwesome5 name="github" size={24} color={COLORS.primaryIcon} />
+			</TouchableOpacity>
+			<TouchableOpacity onPress={() => openUrl('https://www.linkedin.com/in/yourprofile')}>
+				<FontAwesome name="linkedin-square" size={24} color={COLORS.primaryIcon} />
+			</TouchableOpacity>
+			<TouchableOpacity onPress={() => openUrl('https://www.facebook.com/yourprofile')}>
+				<FontAwesome5 name="facebook" size={24} color={COLORS.primaryIcon} />
+			</TouchableOpacity>
+			<TouchableOpacity onPress={() => openUrl('https://www.yourcodesite.com')}>
+				<Entypo name="code" size={24} color={COLORS.primaryIcon} />
+			</TouchableOpacity>
+			<TouchableOpacity onPress={() => openUrl(`https://twitter.com/${profileData.twitter_username}`)}>
+				<FontAwesome name="twitter-square" size={24} color={COLORS.primaryIcon} />
+			</TouchableOpacity>
 		</View>
 		<View>
 			<CustomButton
 				title={"Get Resume"}
 				onPress={() => {
-					handleDownload()
+					openUrl(USERDATA.cvUrl)
 				}}
 				icon={<FontAwesome name="cloud-download" size={20} color={COLORS.primaryText} />}
 			/>
@@ -53,7 +58,6 @@ const styles = StyleSheet.create({
 	container: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: COLORS.primaryBg,
 		padding: 20,
 	},
 	description: {
