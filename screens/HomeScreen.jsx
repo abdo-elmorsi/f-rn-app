@@ -8,6 +8,7 @@ import Loading from "@/components/Loading";
 import Error from "@/components/Error";
 import useFetch from '@/hooks/useFetch';
 import { useFonts } from 'expo-font';
+import GitHubStreakRank from '@/components/GitHubStreakRank';
 
 const HomeScreen = () => {
 	const [fontsLoaded] = useFonts({
@@ -52,6 +53,7 @@ const HomeScreen = () => {
 			<GitHubStatistics />
 			<Projects profile={profile} projects={projects?.items || []} />
 			<GitHubLanguages profile={profile} projects={projects?.items || []} />
+			<GitHubStreakRank />
 		</>
 	);
 };

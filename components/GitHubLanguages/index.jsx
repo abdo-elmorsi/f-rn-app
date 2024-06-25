@@ -1,32 +1,37 @@
-import { Image, View, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import { SectionTitle } from '@/components/global';
-const GitHubLanguages = () => {
+import { USERDATA } from '@/constants';
+import { SvgUri } from 'react-native-svg';
+
+const GitHubStatistics = () => {
   return (
     <View style={styles.container}>
       <SectionTitle title="GitHub Languages" />
+
       <View style={styles.imageContainer}>
-        <Image
-          source={{
-            uri: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREoRGyXmHy_6aIgXYqWHdOT3KjfmnuSyxypw&s`,
-          }}
-          style={styles.image}
+        <SvgUri
+          width="100%"
+          height="100%"
+          uri={`https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=${USERDATA.githubUser}&theme=algolia`}
         />
       </View>
+
       <View style={styles.imageContainer}>
-        <Image
-          source={{
-            uri: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREoRGyXmHy_6aIgXYqWHdOT3KjfmnuSyxypw&s`,
-          }}
-          style={styles.image}
+        <SvgUri
+          width="100%"
+          height="100%"
+          uri={`https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=${USERDATA.githubUser}&theme=algolia`}
         />
       </View>
+
       <View style={styles.imageContainer}>
-        <Image
-          source={{
-            uri: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREoRGyXmHy_6aIgXYqWHdOT3KjfmnuSyxypw&s`,
-          }}
-          style={styles.image}
+        <SvgUri
+          width="100%"
+          height="100%"
+          uri={`https://github-readme-stats.vercel.app/api/top-langs/?username=${USERDATA.githubUser}&layout=compact&theme=default&hide_border=true&&langs_count=6`}
         />
+
       </View>
     </View>
   );
@@ -40,19 +45,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   imageContainer: {
-    width: "100%",
-    height: 130,
-    borderRadius: 4,
-    overflow: 'hidden',
-    marginBottom: 30,
-  },
-  image: {
     width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    zIndex: 10,
-    backgroundColor: "#fff"
+    height: 130,
+    marginBottom: 30,
   },
 });
 
-export default GitHubLanguages;
+export default GitHubStatistics;
