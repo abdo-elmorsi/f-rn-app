@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "first-app",
-    "slug": "first-app",
+    "name": "Abdo Elmorsi",
+    "slug": "portfolio",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/abdo.jpg",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.abdo_elmorsi.portfolio"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +32,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "ab6885a1-2489-45c5-82e2-af8bc942839e"
+      }
+    },
+    "owner": "abdo_elmorsi"
   }
 }
