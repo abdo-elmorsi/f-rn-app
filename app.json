@@ -4,7 +4,7 @@
     "slug": "portfolio",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/abdo.jpg",
+    "icon": "./assets/abdo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
