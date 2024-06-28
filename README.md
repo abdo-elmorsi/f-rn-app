@@ -1,50 +1,35 @@
-# Welcome to your Expo app 👋
+# Abdelrahman Elmorsi's React Native Portfolio App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## About the App
+This is Abdelrahman Elmorsi's personal portfolio app, built using React Native. The app showcases his skills, experience, and projects as a mobile app developer.
 
-## Get started
+## Features
+- **Project Showcase**: The app features a comprehensive list of Abdelrahman's projects, including descriptions, technologies used, and links to GitHub repositories.
+- **Skills and Experience**: The app highlights Abdelrahman's key skills and experience in technologies like React Native, and Expo.
+- **GitHub Statistics**: The app displays Abdelrahman's GitHub statistics, including the number of repositories, followers, and following.
+- **Contact Information**: The app provides Abdelrahman's contact information, including his email, LinkedIn, and GitHub profiles.
 
-1. Install dependencies
+## Technologies Used
+The Abdelrahman Elmorsi portfolio app is built using the following technologies:
 
-   ```bash
-   npm install
-   ```
+- **React Native**: A popular framework for building native mobile apps using React.
+- **Expo**: A toolchain built around React Native to help build, deploy, and quickly iterate on native iOS and Android apps.
 
-2. Start the app
+## Getting Started
+To run the app locally, you'll need to have Expo CLI installed. Then, follow these steps:
 
-   ```bash
-    npx expo start
-   ```
+1. Clone the repository: `git clone https://github.com/abdo-elmorsi/github-portfolio.git`
+2. Navigate to the project directory: `cd github-portfolio`
+3. Install dependencies: `npm install`
+4. Start the development server: `expo start`
+5. Scan the QR code with the Expo app (iOS) or open it in an Android emulator
 
-In the output, you'll find options to open the app in a
+## Contributions
+If you find any issues or have suggestions for improving the app, feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/abdo-elmorsi/github-portfolio).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Contact
+You can reach Abdelrahman at:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Email: abdelrahmandiv@gmail.com
+- LinkedIn: https://www.linkedin.com/in/abdelrahman-a-morsi-163263205
+- GitHub: https://github.com/abdo-elmorsi
