@@ -61,3 +61,12 @@
 //     </Tab.Navigator>
 //   );
 // }
+
+
+// to rebuild the application
+// eas build -p android
+
+
+
+// test the app issue
+// npx expo-doctor@latest
